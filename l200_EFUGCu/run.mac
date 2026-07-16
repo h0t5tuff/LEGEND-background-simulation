@@ -1,13 +1,9 @@
-# EFCu holder-plate contamination in full L200 geometry.
+# EFCu holder-plate contamination in LEGEND200 geometry.
 # Th-232 + U-238 decay chains (50/50), uniform in the copper weldment plates
-# that hold each HPGe detector unit (303 physvols, matched by regex below).
+# that hold each HPGe detector unit (303 physvols).
 # All 101 Ge detectors are read out (registered from the GDML <userinfo>).
-#
-# To target more of the string-support copper, widen the regex, e.g.:
-#   hpge_string_support_(weldment|rod|tristar|hanger)_copper_.*
 
 /RMG/Geometry/RegisterDetectorsFromGDML Germanium
-
 /run/initialize
 
 # primaries uniformly distributed in the holder-plate bulk
