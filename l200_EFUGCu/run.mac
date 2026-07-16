@@ -1,7 +1,7 @@
-# EFCu holder-plate contamination in LEGEND200 geometry.
-# Th-232 + U-238 decay chains (50/50), uniform in the copper weldment plates
-# that hold each HPGe detector unit (303 physvols).
-# All 101 Ge detectors are read out (registered from the GDML <userinfo>).
+# EFUGCu holder-plate contamination in LEGEND200 geometry.
+# Th-232 + U-238 decay chains (50/50), 
+# uniform in the copper weldment plates that hold each HPGe detector unit (303 physvols).
+# All 101 Ge detectors are read out 
 
 /RMG/Geometry/RegisterDetectorsFromGDML Germanium
 /run/initialize
@@ -19,7 +19,7 @@
 /gps/ion 90 232
 /gps/energy 0 eV
 
-# source 1: U-238 (equal intensity -> 50/50 split)
+# source 1: U-238
 /gps/source/add 1
 /gps/particle ion
 /gps/ion 92 238

@@ -1,14 +1,11 @@
 #!/usr/bin/env python
 """Histogram a remage LH5 detector output into a PNG plot.
 
-Reads the ragged edep arrays directly with h5py (no legend packages), so it
-runs anywhere with numpy + h5py + matplotlib.
+Reads the ragged edep arrays directly.
 
     python spectrum.py FILE.lh5 [DETECTOR=all] [EMAX_KEV=3000] [BINWIDTH_KEV=5]
 
-DETECTOR "all" (default) aggregates every stp/det* group into one spectrum
-(each detector hit contributes one entry); or name a single group, e.g.
-det1104000.
+DETECTOR "all" (default) aggregates every stp/det* group into one spectrum.
 
 Output (written next to this script, i.e. the project dir):
     {stem}_{det}_spectrum.png   summed-energy histogram, Th-232/U-238 lines tagged in red
