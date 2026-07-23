@@ -1,0 +1,45 @@
+#   remage -i l200-vis.mac
+# geometry:
+/RMG/Geometry/GDMLDisableOverlapCheck true
+/RMG/Geometry/IncludeGDMLFile l200.gdml
+# detectors: 101 Ge + 58 optical (SiPM) + 1 LAr scintillator
+/control/execute l200-dets.mac
+/run/initialize
+# open the Qt/OpenGL viewe
+/vis/open OGL
+# colours + opacity: 3D-xray depth grade (steel ghost 0.05 -> HPGe solid 1.00)
+/control/execute l200-colors.mac
+# live-peel counter (used by toggles/fadenext.mac)
+/control/alias FZ 0
+/vis/drawVolume
+/vis/viewer/set/style surface
+/vis/viewer/set/viewpointThetaPhi 70 20 deg
+/vis/viewer/set/lightsThetaPhi 70 20 deg
+/vis/viewer/set/autoRefresh true
+/vis/viewer/zoom 1
+
+# ══════════════════════════════════════════════════════════════════════════
+# by PEELING
+#   /control/execute toggles/fadenext.mac
+#   order: 1 outer-steel -> 2 gAr -> 3 lAr -> 4 wlsr-copper
+#          -> 5 wlsr-tetratex -> 6 wlsr-tpb -> 7 calib-tubes -> 8 fibre-barrels(58)
+#          -> 9 sipm-reflectors -> 10 sipms -> 11 larinstr-copper(97)
+#          -> 12 mini-shrouds -> 13 string-copper(33) -> 14 ultem(radiopure plastic clamps) (68) 
+#          -> 15 pen(plastic scintillation holders) -> 16 lmfe(sig chip) -> 17 springs -> bare 101 HPGe
+#
+# by component
+#   /control/execute toggles/fade7.mac
+#
+# RESET
+#   /vis/geometry/set/visibility world -1 true
+#   /control/alias FZ 0
+#
+# by MATERIAL:
+#   /control/execute toggles/hide-<group>.mac   (undo: show-<group>.mac)
+#   groups: hpge  copper  ultem  fibers  minishrouds  calibtubes  pen  springs
+#           lmfe  sipm  sipm-reflectors  steel  lar  gar
+#           wlsr-copper  wlsr-tpb  wlsr-tetratex
+#
+# By volume:
+#   /vis/geometry/set/visibility <name> 0 false
+# ══════════════════════════════════════════════════════════════════════════
