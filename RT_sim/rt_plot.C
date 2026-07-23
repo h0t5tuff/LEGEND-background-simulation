@@ -1,4 +1,4 @@
-// reach (% of the fired gammas that hit any Ge) vs source height z.  Run: root -l -b -q rt_plot.C
+// reach (% of the fired gammas that hit any Ge) vs source height z.
 #include <set>
 void rt_plot()
 {

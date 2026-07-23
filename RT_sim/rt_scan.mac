@@ -20,7 +20,7 @@
 /gps/particle gamma
 /gps/energy 2614 keV
 /gps/pos/type Point
-/gps/ang/type iso
+/gps/ang/type iso.   # do some efficiency 
 
 # one block per height: 
 # name the output file, 
