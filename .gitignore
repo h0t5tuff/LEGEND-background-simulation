@@ -1,5 +1,4 @@
-l1000-dets.mac
-l1000.gdml
-l200-dets.mac
-l200.gdml
+*dets.mac
+*.gdml
+*.root
 .DS_Store
